@@ -5,7 +5,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Menu menu = new Menu();
         AccountManager accountManager = new AccountManager();
+        BrandManager brandManager = new BrandManager();
+        ProductManager productManager = new ProductManager(brandManager);
 
-        menu.runMenuAll(scanner, accountManager, menu);
+        menu.runMenuAll(scanner, accountManager, menu, brandManager, productManager);
     }
 }

@@ -1,4 +1,5 @@
-public class Account {private String userName;
+public class Account {
+    private String userName;
     private String passWord;
     private String fullName;
     private String email;
@@ -73,7 +74,7 @@ public class Account {private String userName;
 
     @Override
     public String toString() {
-        return "Product.Account {" +
+        return "Account {" +
                 "userName='" + userName + '\'' +
                 ", passWord='" + passWord + '\'' +
                 ", fullName='" + fullName + '\'' +

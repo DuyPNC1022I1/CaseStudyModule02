@@ -62,11 +62,12 @@ public class AccountManager {
             }
         } while (!check.checkPhoneNumber(phoneNumber));
 
-        System.out.println("Creat account complete!!!");
+        System.out.println("Creat new account complete!!!");
         return new Account(userName, pass, fullName, email, phoneNumber);
     }
 
     public void addAccount(Scanner scanner) {
+
         accounts.add(creatAccount(scanner));
     }
 
@@ -91,53 +92,28 @@ public class AccountManager {
         }
     }
 
-    public void loginAccount(Menu menu, Scanner scanner) {
+    public void loginAccount(Menu menu, Scanner scanner, BrandManager brandManager, ProductManager productManager, AccountManager accountManager) {
         boolean flag = true;
-        String userName = null;
-        String pass = null;
-        do {
-            System.out.println("Enter userName: ");
-            userName = scanner.nextLine();
-            if (check.checkEmpty(userName)) {
-                for (int i = 0; i < accounts.size(); i++) {
-                    if (accounts.get(i).getUserName().equals(userName)) {
-                        flag = false;
-                        break;
-                    } else {
-                        System.out.println("Product.Account not exist");
-                    }
-                }
-            } else {
-                System.out.println("Format wrong userName, re-enter!");
-            }
-        }
-        while ((!check.checkEmpty(userName)) || flag);
-
-        do {
-            System.out.println("Enter password: ");
-            pass = scanner.nextLine();
-            if (check.checkEmpty(pass)) {
-                for (int i = 0; i < accounts.size(); i++) {
-                    if (accounts.get(i).getPassWord().equals(pass)) {
-                        flag = false;
-                        break;
-                    } else {
-                        System.out.println("Password false, re-enter");
-                        flag = true;
-                    }
-                }
-            } else {
-                System.out.println("Format wrong password");
-            }
-        }
-        while ((!check.checkEmpty(pass)) || flag);
-
         //Check login
-        System.out.println("Login complete!!!");
-        if (userName.equals("admin")) {
-            menu.runMenuAdmin();
+        System.out.println("Enter userName");
+        String userName = scanner.nextLine();
+        System.out.println("Enter password");
+        String pass = scanner.nextLine();
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getUserName().equals(userName) && accounts.get(i).getPassWord().equals(pass)) {
+                System.out.println("Login complete!!!");
+                flag = false;
+            }
+        }
+        if (!flag) {
+            if (userName.equals("admin")) {
+                menu.runMenuAdmin(scanner, brandManager, productManager, accountManager, menu);
+            } else {
+                menu.runMenuUser(scanner, brandManager, productManager, accountManager, menu);
+            }
         } else {
-            menu.runMenuUser();
+            System.out.println("Login fail. Please re-enter!!!");
+            loginAccount(menu, scanner, brandManager, productManager, accountManager);
         }
     }
 }

@@ -1,5 +1,3 @@
-import javafx.scene.transform.Scale;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
