@@ -1,5 +1,4 @@
-public class Account {
-    private String userName;
+public class Account {private String userName;
     private String passWord;
     private String fullName;
     private String email;
@@ -21,7 +20,7 @@ public class Account {
         this.fullName = fullName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        role = "User";
+        this.role = "user";
     }
 
     public String getUserName() {
@@ -70,5 +69,17 @@ public class Account {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Product.Account {" +
+                "userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
