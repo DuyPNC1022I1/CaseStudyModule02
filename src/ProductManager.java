@@ -2,6 +2,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class ProductManager {
@@ -15,7 +17,7 @@ public class ProductManager {
     }
 
     public void displayProduct() {
-        if (!productManager.isEmpty()) {
+        if (productManager.isEmpty()) {
             System.out.println("Not exist Product in this list");
         } else {
             for (int i = 0; i < productManager.size(); i++) {
@@ -26,6 +28,8 @@ public class ProductManager {
 
     public Product creatProduct(Scanner scanner) {
         int id;
+        double price = 0;
+        int quantity = 0;
         boolean check = true;
         System.out.println("Enter to new product");
         if (productManager.isEmpty()) {
@@ -38,9 +42,9 @@ public class ProductManager {
         do {
             try {
                 System.out.println("Enter price of product: ");
-                double price = Double.parseDouble(scanner.nextLine());
+                price = Double.parseDouble(scanner.nextLine());
                 System.out.println("Enter quantity of product: ");
-                int quantity = Integer.parseInt(scanner.nextLine());
+                quantity = Integer.parseInt(scanner.nextLine());
                 check = false;
             } catch (NumberFormatException e) {
                 System.out.println("Wrong format, re-enter");
@@ -49,7 +53,7 @@ public class ProductManager {
         while (check);
         System.out.println("Choose brand of product: ");
         Brand brand = choiceBrand(scanner);
-        return null;
+        return new Product(id, name, price, quantity, brand);
     }
 
     public Brand choiceBrand(Scanner scanner) {
@@ -120,6 +124,7 @@ public class ProductManager {
                 }
             }
             productManager.remove(indexDelete);
+            displayProduct();
         } else {
             System.out.println("Delete fail because 'Not exist Product in list'");
         }
@@ -156,6 +161,7 @@ public class ProductManager {
                     while (check);
                 }
             }
+            displayProduct();
         } else {
             System.out.println("Update fail because 'Not exist Product in list'");
         }
@@ -214,7 +220,19 @@ public class ProductManager {
         }
     }
 
-    public void searchByBrand (Scanner scanner) {
+    //Hiển thị sản phẩm theo giá tăng dần
+    public void displayByPriceUp() {
+        System.out.println("List product by up price: ");
+        Collections.sort(productManager, new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                return o1.getPrice() > o2.getPrice() ? 1 : -1;
+            }
+        });
+        displayProduct();
+    }
+
+    public void searchByBrand(Scanner scanner) {
         if (!productManager.isEmpty()) {
             System.out.println("Enter choice brand to search: ");
             Brand brandSearch = choiceBrand(scanner);
@@ -228,9 +246,44 @@ public class ProductManager {
             if (flag) {
                 System.out.println("Not have the same brand of product!");
             }
-        }
-        else {
+        } else {
             System.out.println("Search fail because 'Not exist Product in list'");
+        }
+    }
+
+    //Mua, thêm vào giỏ hàng
+    public void addToCart(Scanner scanner) {
+        ArrayList<Product> cart = new ArrayList<>();
+        double totalPayment = 0; //Tổng tiền thanh toán
+        System.out.println("Enter name of product to buy: ");
+        String nameToBuy = scanner.nextLine();
+        int indexBuy = -1;
+        for (int i = 0; i < productManager.size(); i++) {
+            if (productManager.get(i).getName().toUpperCase().contains(nameToBuy.toUpperCase())) {
+                indexBuy = i;
+            }
+        }
+        if ((indexBuy != -1)) {
+            if (productManager.get(indexBuy).getQuantity() != 0) {
+                cart.add(productManager.get(indexBuy)); //Thêm sản phẩm vào giỏ hàng user
+                productManager.get(indexBuy).setQuantity(productManager.get(indexBuy).getQuantity() - 1);
+                displayProduct();
+                System.out.println("Now, your cart is: ");
+                for (int i = 0; i < cart.size(); i++) {
+                    System.out.println(cart.get(i));
+                }
+                System.out.println("Total payment is: ");
+                for (int i = 0; i < cart.size(); i++) {
+                    totalPayment += cart.get(i).getQuantity() * cart.get(i).getPrice();
+                }
+            }
+            else {
+                System.out.println("This product is out of stock, please choose different product");
+                addToCart(scanner);
+            }
+        } else {
+            System.out.println("Not have the same name!, re-enter");
+            addToCart(scanner);
         }
     }
 
@@ -242,11 +295,9 @@ public class ProductManager {
             outputStream.writeObject(productManager);
             outputStream.close();
             out.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
     //Đọc file
 }
