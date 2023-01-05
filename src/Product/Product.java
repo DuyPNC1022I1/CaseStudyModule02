@@ -1,11 +1,15 @@
-public class Product {
+package Product;
+
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private int id;
     private String name;
-    private double price;
+    private int price;
     private int quantity;
     private Brand brand;
 
-    public Product(int id, String name, double price, int quantity, Brand brand) {
+    public Product(int id, String name, int price, int quantity, Brand brand) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -33,7 +37,7 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -57,8 +61,8 @@ public class Product {
     public String toString() {
         return "Product {" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
+                ", name='" + "MassageChair " + name + '\'' +
+                ", price=" + price + "VND"+
                 ", quantity=" + quantity +
                 ", brand=" + brand +
                 '}';

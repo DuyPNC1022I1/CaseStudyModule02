@@ -1,18 +1,24 @@
+package Manager;
+
+import Product.Brand;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BrandManager {
-    private ArrayList<Brand> brandManager;
+public class BrandManager implements Serializable {
+    private ArrayList<Brand> brands;
     private int idDefault = 0;
+    public FileManager fileManager = new FileManager<>();
 
     public BrandManager() {
-        this.brandManager = new ArrayList<>();
+        this.brands = new ArrayList<>();
+        brands = (ArrayList<Brand>) fileManager.readToFile(fileManager.getFileBrand());
     }
 
     public void displayBrandManager() {
-        if (!brandManager.isEmpty()) {
-            for (int i = 0; i < brandManager.size(); i++) {
-                System.out.println(brandManager.get(i));
+        if (!brands.isEmpty()) {
+            for (int i = 0; i < brands.size(); i++) {
+                System.out.println(brands.get(i));
             }
         } else {
             System.out.println("Not exist Brand in list");
@@ -22,10 +28,10 @@ public class BrandManager {
     public Brand creatBrand(Scanner scanner) {
         System.out.println("Enter information of new Brand");
         int id;
-        if (brandManager.isEmpty()) {
+        if (brands.isEmpty()) {
             id = idDefault++;
         } else {
-            id = brandManager.get(brandManager.size() - 1).getId() + 1;
+            id = brands.get(brands.size() - 1).getId() + 1;
         }
         System.out.println("Enter name of new Brand");
         String name = scanner.nextLine();
@@ -33,7 +39,8 @@ public class BrandManager {
     }
 
     public void addBrand(Scanner scanner) {
-        brandManager.add(creatBrand(scanner));
+        brands.add(creatBrand(scanner));
+        fileManager.writeToFile(fileManager.getFileBrand(), brands);
         displayBrandManager();
     }
 
@@ -51,8 +58,8 @@ public class BrandManager {
             }
         }
         while (check);
-        for (int i = 0; i < brandManager.size(); i++) {
-            if (brandManager.get(i).getId() == id) {
+        for (int i = 0; i < brands.size(); i++) {
+            if (brands.get(i).getId() == id) {
                 idToDelete = i;
             }
         }
@@ -60,15 +67,16 @@ public class BrandManager {
             System.out.println("Not have product example this id");
             deleteBrandById(scanner);
         } else {
-            brandManager.remove(idToDelete);
+            brands.remove(idToDelete);
             displayBrandManager();
+            fileManager.writeToFile(fileManager.getFileBrand(), brands);
         }
     }
 
     public Brand getBrandById(int id) {
-        for (int i = 0; i < brandManager.size(); i++) {
-            if (brandManager.get(i).getId() == id) {
-                return brandManager.get(i);
+        for (int i = 0; i < brands.size(); i++) {
+            if (brands.get(i).getId() == id) {
+                return brands.get(i);
             }
         }
         return null;

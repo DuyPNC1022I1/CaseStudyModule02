@@ -1,23 +1,27 @@
-public class Account {
-    private String userName;
-    private String passWord;
+package Account;
+
+import java.io.Serializable;
+
+public class Account implements Serializable {
+    private String username;
+    private String password;
     private String fullName;
     private String email;
     private String phoneNumber;
     private String role;
 
-    public Account(String userName, String passWord, String fullName, String email, String phoneNumber, String role) {
-        this.userName = userName;
-        this.passWord = passWord;
+    public Account(String username, String password, String fullName, String email, String phoneNumber, String role) {
+        this.username = username;
+        this.password = password;
         this.fullName = fullName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.role = role;
     }
 
-    public Account(String userName, String passWord, String fullName, String email, String phoneNumber) {
-        this.userName = userName;
-        this.passWord = passWord;
+    public Account(String username, String passWord, String fullName, String email, String phoneNumber) {
+        this.username = username;
+        this.password = passWord;
         this.fullName = fullName;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -25,19 +29,19 @@ public class Account {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFullName() {
@@ -75,8 +79,8 @@ public class Account {
     @Override
     public String toString() {
         return "Account {" +
-                "userName='" + userName + '\'' +
-                ", passWord='" + passWord + '\'' +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +

@@ -1,6 +1,16 @@
+package Menu;
+
+import Manager.AccountManager;
+import Manager.BrandManager;
+import Manager.ProductManager;
+
 import java.util.Scanner;
 
 public class Menu {
+    Scanner scanner = new Scanner(System.in);
+    AccountManager accountManager = new AccountManager();
+    BrandManager brandManager = new BrandManager();
+    ProductManager productManager = new ProductManager(brandManager);
 
     public int choice(Scanner scanner) {
         int choice = -1;
@@ -13,18 +23,19 @@ public class Menu {
         return choice;
     }
 
-    public void runMenuAll(Scanner scanner, AccountManager accountManager, Menu menu, BrandManager brandManager, ProductManager productManager) {
+    public void runMenuAll() {
         do {
-            System.out.println("~~~~~~~~~~~~~~~MENU~~~~~~~~~~~~~~~~");
+            System.out.println("~~~~~~~~~~~~~~~~~~MENU~~~~~~~~~~~~~~~~~~");
             System.out.println("1. Login");
             System.out.println("2. Creat new Account");
             System.out.println("0. Exit");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             switch (choice(scanner)) {
                 case 1:
-                    accountManager.loginAccount(menu, scanner, brandManager, productManager, accountManager);
+                    accountManager.loginAccount(scanner);
                     break;
                 case 2:
-                    accountManager.addAccount(scanner);
+                    accountManager.add(scanner);
                     break;
                 case 0:
                     System.exit(0);
@@ -35,37 +46,41 @@ public class Menu {
         while (true);
     }
 
-    public void runMenuUser(Scanner scanner, BrandManager brandManager, ProductManager productManager, AccountManager accountManager, Menu menu) {
+    public void runMenuUser() {
         do {
             System.out.println("~~~~~~~~~~~~~~~MENU_USER~~~~~~~~~~~~~~~~");
             System.out.println("1. Display list of product");
             System.out.println("2. Display product by up price");
-            System.out.println("2. Search product by name");
-            System.out.println("3. Search product by price ");
-            System.out.println("4. Search product by brand");
-            System.out.println("5. Add product to cart");
-            System.out.println("6. Purchase order");
-            System.out.println("7. Logout");
+            System.out.println("3. Display product by brand");
+            System.out.println("4. Search product by name");
+            System.out.println("5. Search product by price ");
+            System.out.println("6. Add product to cart");
+            System.out.println("7. Purchase order");
+            System.out.println("8. Logout");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             switch (choice(scanner)) {
                 case 1:
-                    productManager.displayProduct();
+                    productManager.display();
                     break;
                 case 2:
                     productManager.displayByPriceUp();
                     break;
                 case 3:
-                    productManager.searchByName(scanner);
+                    productManager.displayByBrand(scanner);
                     break;
                 case 4:
-                    productManager.searchByBrand(scanner);
+                    productManager.searchByName(scanner);
                     break;
                 case 5:
-                    productManager.addToCart(scanner);
+                    productManager.searchByPrice(scanner);
                     break;
                 case 6:
+                    productManager.addToCart(scanner);
                     break;
                 case 7:
-                    runMenuAll(scanner, accountManager, menu, brandManager, productManager);
+                    break;
+                case 8:
+                    runMenuAll();
                     break;
                 case 0:
                     System.exit(0);
@@ -76,50 +91,50 @@ public class Menu {
         while (true);
     }
 
-    public void runMenuAdmin(Scanner scanner, BrandManager brandManager, ProductManager productManager, AccountManager accountManager, Menu menu) {
+    public void runMenuAdmin() {
         do {
             System.out.println("~~~~~~~~~~~~~~~MENU_ADMIN~~~~~~~~~~~~~~~~");
-            System.out.println("1. Display list of brand");
-            System.out.println("2. Add brand");
-            System.out.println("3. Delete brand");
-            System.out.println("4. Display list of product");
-            System.out.println("5. Add product");
-            System.out.println("6. Delete product by id");
-            System.out.println("7. Update information of product");
-            System.out.println("8. Read file bill");
-            System.out.println("9. Write to file");
-            System.out.println("10. Read to file");
-            System.out.println("11. Logout");
+            System.out.println("1. Display account");
+            System.out.println("2. Delete account");
+            System.out.println("3. Display list of brand");
+            System.out.println("4. Add brand");
+            System.out.println("5. Delete brand");
+            System.out.println("6. Display list of product");
+            System.out.println("7. Add product");
+            System.out.println("8. Delete product by id");
+            System.out.println("9. Update information of product");
+            System.out.println("10. Logout");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             switch (choice(scanner)) {
                 case 1:
-                    brandManager.displayBrandManager();
+                    accountManager.display();
                     break;
                 case 2:
-                    brandManager.addBrand(scanner);
+                    accountManager.delete(scanner);
                     break;
                 case 3:
-                    brandManager.deleteBrandById(scanner);
+                    brandManager.displayBrandManager();
                     break;
                 case 4:
-                    productManager.displayProduct();
+                    brandManager.addBrand(scanner);
                     break;
                 case 5:
-                    productManager.addProduct(scanner);
+                    brandManager.deleteBrandById(scanner);
                     break;
                 case 6:
-                    productManager.deleteProductById(scanner);
+                    productManager.display();
                     break;
                 case 7:
-                    productManager.updateProductById(scanner);
+                    productManager.add(scanner);
                     break;
                 case 8:
+                    productManager.delete(scanner);
                     break;
                 case 9:
+                    productManager.update(scanner);
                     break;
                 case 10:
-                    break;
-                case 11:
-                    runMenuAll(scanner, accountManager, menu, brandManager, productManager);
+                    runMenuAll();
                     break;
                 case 0:
                     System.exit(0);

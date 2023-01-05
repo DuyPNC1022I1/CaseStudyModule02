@@ -1,4 +1,8 @@
-public class Brand {
+package Product;
+
+import java.io.Serializable;
+
+public class Brand implements Serializable {
     private int id;
     private String name;
 
