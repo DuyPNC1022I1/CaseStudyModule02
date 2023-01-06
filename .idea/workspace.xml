@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9cb4fa-1f70-498b-b027-47138205dc56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/CartManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/Check.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/BillManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Bill.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Action/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/CRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Action/Check.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FileSave/FileAccount" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FileSave/FileBrand" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FileSave/FileProduct" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manager/AccountManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AccountManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manager/BrandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/BrandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manager/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manager/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ProductManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Brand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/CartManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CartManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,42 +101,11 @@
       <workItem from="1672969631125" duration="12710000" />
       <workItem from="1672986678367" duration="5010000" />
       <workItem from="1672991746985" duration="2950000" />
-      <workItem from="1672994745461" duration="568000" />
+      <workItem from="1672994745461" duration="6049000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/CartManager.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/CartManager.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/CartManager.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/CartManager.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/CartManager.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

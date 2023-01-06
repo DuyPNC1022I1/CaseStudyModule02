@@ -7,6 +7,7 @@ public class FileManager<E> {
     private String fileProduct = "D:\\Module 02\\CaseStudyMD2\\src\\database\\FileProduct";
     private String fileBrand = "D:\\Module 02\\CaseStudyMD2\\src\\database\\FileBrand";
     private String fileAccount = "D:\\Module 02\\CaseStudyMD2\\src\\database\\FileAccount";
+    private String fileBill = "D:\\Module 02\\CaseStudyMD2\\src\\database\\FileBill";
 
     public FileManager() {
     }
@@ -33,6 +34,14 @@ public class FileManager<E> {
 
     public void setFileAccount(String fileAccount) {
         this.fileAccount = fileAccount;
+    }
+
+    public String getFileBill() {
+        return fileBill;
+    }
+
+    public void setFileBill(String fileBill) {
+        this.fileBill = fileBill;
     }
 
     public List<E> readToFile(String nameFile) {

@@ -21,9 +21,8 @@ public class CartManager implements CRUD<Cart> {
                 System.out.println(carts.get(i));
             }
         } else {
-            System.out.println("Cart is empty");
+            System.out.println("Your cart is empty");
         }
-
     }
 
     public Cart creatNew(Scanner scanner, ArrayList<Product> products) {
@@ -96,28 +95,30 @@ public class CartManager implements CRUD<Cart> {
 
     }
 
-    public void toPay(Scanner scanner) {
+    public boolean toPay(Scanner scanner) {
         int totalPay = 0;
         ProductManager productManager = new ProductManager();
-        System.out.println("Enter your choose: ");
-        System.out.println("1. To pay your cart!");
-        System.out.println("2. Return to display product");
-        int choose = Integer.parseInt(scanner.nextLine());
-        switch (choose) {
-            case 1:
-                display();
-                for (int i = 0; i < carts.size(); i++) {
-                    totalPay += carts.get(i).getQuantity()*carts.get(i).getPrice();
-                }
-                System.out.println("Total Payment is: " + totalPay + " VND");
-                System.out.println("");
-                break;
-            case 2:
-                productManager.display();
-                break;
-            default:
-                System.out.println("Out of choice, re-enter");
+        do {
+            System.out.println("Enter your choose: [0~2] ");
+            System.out.println("1. To pay your cart!");
+            System.out.println("2. Return to display product");
+            int choose = Integer.parseInt(scanner.nextLine());
+            switch (choose) {
+                case 1:
+                    display();
+                    for (int i = 0; i < carts.size(); i++) {
+                        totalPay += carts.get(i).getQuantity() * carts.get(i).getPrice();
+                    }
+                    System.out.println("Total Payment is: " + totalPay + " VND");
+                    return true;
+                case 2:
+                    productManager.display();
+                    return false;
+                default:
+                    System.out.println("Out of choice, re-enter");
+            }
         }
+        while (true);
     }
 
     @Override

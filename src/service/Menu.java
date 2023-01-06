@@ -1,9 +1,7 @@
 package service;
 
-import controller.AccountManager;
-import controller.BrandManager;
-import controller.CartManager;
-import controller.ProductManager;
+import controller.*;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -12,6 +10,7 @@ public class Menu {
     BrandManager brandManager = new BrandManager();
     ProductManager productManager = new ProductManager(brandManager);
     CartManager cartManager = new CartManager();
+    BillManager billManager = new BillManager();
 
     public int choice(Scanner scanner) {
         int choice = -1;
@@ -57,7 +56,8 @@ public class Menu {
             System.out.println("5. Search product by price ");
             System.out.println("6. Add product to cart");
             System.out.println("7. Pay your cart");
-            System.out.println("8. Logout");
+            System.out.println("8. Display bill");
+            System.out.println("9. Logout");
             System.out.println("0. Exit");
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             switch (choice(scanner)) {
@@ -81,8 +81,12 @@ public class Menu {
                     break;
                 case 7:
                     cartManager.toPay(scanner);
+                    //Thêm tạo bil
                     break;
                 case 8:
+
+                    break;
+                case 9:
                     runMenuAll();
                     break;
                 case 0:
