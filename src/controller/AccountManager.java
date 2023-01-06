@@ -1,10 +1,9 @@
-package Manager;
+package controller;
 
-import Action.CRUD;
-import Action.Check;
-import Account.Account;
-import Menu.Menu;
-
+import service.CRUD;
+import model.Account;
+import service.Menu;
+import service.Check;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -40,17 +39,18 @@ public class AccountManager implements CRUD<Account> {
         String pass = null;
         String email = null;
         String phoneNumber = null;
-        boolean flag = true;
+        boolean flag = false;
         System.out.println("Creat new account: ");
         System.out.println("Enter full name: ");
         String fullName = scanner.nextLine();
         do {
             System.out.println("Enter username [> 0 character]: ");
             username = scanner.nextLine();
-            if (check.checkEmpty(username)) {
+            if (check.checkUsername(username)) {
                 for (int i = 0; i < accounts.size(); i++) {
-                    if (!accounts.get(i).getUserName().equals(username)) {
-                        flag = false;
+                    if (accounts.get(i).getUserName().equals(username)) {
+                        flag = true;
+                        break;
                     }
                 }
                 if (flag) {
@@ -59,7 +59,7 @@ public class AccountManager implements CRUD<Account> {
             } else {
                 System.out.println("Format wrong username, re-enter");
             }
-        } while (!check.checkEmpty(username) || flag);
+        } while (!check.checkUsername(username) || flag);
         do {
             System.out.println("Enter password [0 -> 15 character]: ");
             pass = scanner.nextLine();
@@ -73,7 +73,17 @@ public class AccountManager implements CRUD<Account> {
             if (!check.checkEmail(email)) {
                 System.out.println("Format wrong email, re-enter");
             }
-        } while (!check.checkEmail(email));
+            else {
+                for (int i = 0; i < accounts.size(); i++) {
+                    if(accounts.get(i).getEmail().equals(email)) {
+                        flag = true;
+                    }
+                }
+                if (flag) {
+                    System.out.println("Email already exist, re-enter");
+                }
+            }
+        } while (!check.checkEmail(email) || flag);
         do {
             System.out.println("Enter phone number [Example: 0*********]: ");
             phoneNumber = scanner.nextLine();
@@ -84,6 +94,7 @@ public class AccountManager implements CRUD<Account> {
         System.out.println("Creat new account complete!!!");
         return new Account(username, pass, fullName, email, phoneNumber);
     }
+
 
     @Override
     public void add(Scanner scanner) {

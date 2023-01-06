@@ -1,9 +1,8 @@
-package Manager;
+package controller;
 
-import Action.CRUD;
-import Product.Product;
-import Product.Brand;
-
+import service.CRUD;
+import model.Product;
+import model.Brand;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -15,10 +14,17 @@ public class ProductManager implements CRUD<Product> {
     public FileManager fileManager = new FileManager<>();
     int idDefault = 0;
 
+    public ProductManager() {
+    }
+
     public ProductManager(BrandManager brandManager) {
         products = new ArrayList<>();
         products = (ArrayList<Product>) fileManager.readToFile(fileManager.getFileProduct());
         this.brandManager = brandManager;
+    }
+
+    public ArrayList<Product> getProducts() {
+        return products;
     }
 
     @Override
@@ -77,7 +83,7 @@ public class ProductManager implements CRUD<Product> {
     @Override
     public void add(Scanner scanner) {
         products.add(creatNew(scanner));
-        fileManager.readToFile(fileManager.getFileProduct());
+        fileManager.writeToFile(fileManager.getFileProduct(), products);
         display();
     }
 
@@ -234,7 +240,7 @@ public class ProductManager implements CRUD<Product> {
                 }
             }
             while (check);
-            System.out.println("Product.Product you need to find is: ");
+            System.out.println("model.Product you need to find is: ");
             for (int i = 0; i < products.size(); i++) {
                 if ((products.get(i).getPrice() >= priceLower) && (products.get(i).getPrice() <= priceUpper)) {
                     System.out.println(products.get(i));
@@ -271,48 +277,4 @@ public class ProductManager implements CRUD<Product> {
         }
     }
 
-    //Mua, thêm vào giỏ hàng
-    public void addToCart(Scanner scanner) {
-        ArrayList<Product> cart = new ArrayList<>();
-        int indexBuy = -1;
-        int quantity = 0;
-        int totalPayment = 0; //Tổng tiền thanh toán
-        boolean check = true;
-        System.out.println("Enter name of product to buy: ");
-        String nameToBuy = scanner.nextLine();
-        do {
-            try {
-                System.out.println("Enter quantity of product to buy");
-                quantity = Integer.parseInt(scanner.nextLine());
-                check = false;
-            } catch (NumberFormatException e) {
-                System.out.println("Format wrong, re-enter");
-            }
-        } while (check);
-        for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getName().toUpperCase().contains(nameToBuy.toUpperCase())) {
-                indexBuy = i;
-            }
-        }
-        if ((indexBuy != -1)) {
-            if (products.get(indexBuy).getQuantity() != 0) {
-                cart.add(products.get(indexBuy)); //Thêm sản phẩm vào giỏ hàng user
-                products.get(indexBuy).setQuantity(products.get(indexBuy).getQuantity() - quantity);
-                display();
-                //Hiển thị giỏ hàng
-                System.out.println("Now, your cart is: ");
-                for (int i = 0; i < cart.size(); i++) {
-                    System.out.println("Your cart: { Product.Product: " + cart.get(i).getName() + ", quantity: " + cart.get(i).getQuantity() + " }" + "\n");
-                    totalPayment = (int) (cart.get(i).getQuantity() * cart.get(i).getPrice());
-                }
-                System.out.println("Total payment is: " + totalPayment + " USD");
-            } else {
-                System.out.println("This product is out of stock, please choose different product");
-                addToCart(scanner);
-            }
-        } else {
-            System.out.println("Not have the same name!, re-enter");
-            addToCart(scanner);
-        }
-    }
 }

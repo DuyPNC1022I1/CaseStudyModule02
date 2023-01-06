@@ -1,4 +1,4 @@
-package Action;
+package service;
 
 import java.util.regex.Pattern;
 
@@ -10,11 +10,15 @@ public class Check {
         return true;
     }
 
+    public boolean checkUsername(String username) {
+        String regexPattern = "^[a-zA-Z0-9]+$";
+        return Pattern.compile(regexPattern).
+                matcher(username).
+                matches();
+    }
+
     public boolean checkEmail(String email) {
         String regexPattern = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-        return patternMatches(email,regexPattern);
-    }
-    public boolean patternMatches(String email, String regexPattern) {
         return Pattern.compile(regexPattern).
                 matcher(email).
                 matches();
@@ -26,6 +30,4 @@ public class Check {
                 .matcher(phoneNumber)
                 .matches();
     }
-
-
 }

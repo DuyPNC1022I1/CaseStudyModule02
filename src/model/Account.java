@@ -1,4 +1,4 @@
-package Account;
+package model;
 
 import java.io.Serializable;
 

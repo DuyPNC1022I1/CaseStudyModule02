@@ -1,12 +1,12 @@
-package Manager;
+package controller;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileManager<E> {
-    private String fileProduct = "D:\\Module 02\\CaseStudyMD2\\src\\FileSave\\FileProduct";
-    private String fileBrand = "D:\\Module 02\\CaseStudyMD2\\src\\FileSave\\FileBrand";
-    private String fileAccount = "D:\\Module 02\\CaseStudyMD2\\src\\FileSave\\FileAccount";
+    private String fileProduct = "D:\\Module 02\\CaseStudyMD2\\src\\database\\FileProduct";
+    private String fileBrand = "D:\\Module 02\\CaseStudyMD2\\src\\database\\FileBrand";
+    private String fileAccount = "D:\\Module 02\\CaseStudyMD2\\src\\database\\FileAccount";
 
     public FileManager() {
     }

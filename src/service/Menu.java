@@ -1,9 +1,9 @@
-package Menu;
+package service;
 
-import Manager.AccountManager;
-import Manager.BrandManager;
-import Manager.ProductManager;
-
+import controller.AccountManager;
+import controller.BrandManager;
+import controller.CartManager;
+import controller.ProductManager;
 import java.util.Scanner;
 
 public class Menu {
@@ -11,6 +11,7 @@ public class Menu {
     AccountManager accountManager = new AccountManager();
     BrandManager brandManager = new BrandManager();
     ProductManager productManager = new ProductManager(brandManager);
+    CartManager cartManager = new CartManager();
 
     public int choice(Scanner scanner) {
         int choice = -1;
@@ -55,8 +56,9 @@ public class Menu {
             System.out.println("4. Search product by name");
             System.out.println("5. Search product by price ");
             System.out.println("6. Add product to cart");
-            System.out.println("7. Purchase order");
+            System.out.println("7. Pay your cart");
             System.out.println("8. Logout");
+            System.out.println("0. Exit");
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             switch (choice(scanner)) {
                 case 1:
@@ -75,9 +77,10 @@ public class Menu {
                     productManager.searchByPrice(scanner);
                     break;
                 case 6:
-                    productManager.addToCart(scanner);
+                    cartManager.add(scanner, productManager.getProducts());
                     break;
                 case 7:
+                    cartManager.toPay(scanner);
                     break;
                 case 8:
                     runMenuAll();
@@ -104,6 +107,7 @@ public class Menu {
             System.out.println("8. Delete product by id");
             System.out.println("9. Update information of product");
             System.out.println("10. Logout");
+            System.out.println("0. Exit");
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             switch (choice(scanner)) {
                 case 1:

@@ -1,6 +1,7 @@
-package Manager;
+package controller;
 
-import Product.Brand;
+import model.Brand;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
