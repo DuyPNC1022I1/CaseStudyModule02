@@ -12,6 +12,7 @@ public class Menu {
     CartManager cartManager = new CartManager();
     BillManager billManager = new BillManager();
 
+
     public int choice(Scanner scanner) {
         int choice = -1;
         try {
@@ -79,8 +80,8 @@ public class Menu {
                     cartManager.add(scanner, productManager.getProducts());
                     break;
                 case 7:
-                    cartManager.toPay(scanner);
-                    billManager.displayBillUser(scanner, cartManager.getCarts(), cartManager);
+                    cartManager.toPay(scanner, productManager);
+                    billManager.displayBillUser(scanner, cartManager, productManager);
                     break;
                 case 8:
                     runMenuAll();

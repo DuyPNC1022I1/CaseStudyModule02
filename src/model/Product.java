@@ -57,14 +57,4 @@ public class Product implements Serializable {
         this.brand = brand;
     }
 
-    @Override
-    public String toString() {
-        return "Product {" +
-                "id=" + id +
-                ", name='" + "MassageChair " + name + '\'' +
-                ", price=" + price + "USD" +
-                ", quantity=" + quantity +
-                ", brand=" + brand +
-                '}';
-    }
 }

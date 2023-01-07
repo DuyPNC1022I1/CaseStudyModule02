@@ -1,76 +1,42 @@
 package controller;
 
 import model.Bill;
-import model.Cart;
-import service.CRUD;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BillManager implements CRUD {
-    private ArrayList<Bill> bills;
-
-    public BillManager() {
-        this.bills = new ArrayList<>();
-    }
-
-
-    @Override
-    public void display() {
-        if (!bills.isEmpty()) {
-            for (int i = 0; i < bills.size(); i++) {
-                System.out.println(bills.get(i));
-            }
+public class BillManager  {
+    public void displayBillUser(Scanner scanner, CartManager cartManager, ProductManager productManager) {
+        Bill bill = creatNew(scanner, cartManager, productManager);
+        System.out.printf("-------------------------------------------%n");
+        System.out.printf("                     BILL                  %n");
+        System.out.printf("-------------------------------------------%n");
+        System.out.printf("Date:  %-15s                    |%n", bill.getDate());
+        System.out.printf("Customer: %-12s                   |%n", bill.getCustomerName());
+        System.out.printf("|%-10s | %-15s |%-10s |%n", "PRODUCT", "PRICE(USD)", "QUANTITY");
+        for (int i = 0; i < cartManager.getCarts().size(); i++) {
+            System.out.printf("|%-10s | %-15s |%-10s |%n", cartManager.getCarts().get(i).getProduct(),
+                    cartManager.getCarts().get(i).getPrice(), cartManager.getCarts().get(i).getQuantity());
         }
-        else {
-            System.out.println("Bill is empty");
-        }
+        System.out.printf("-------------------------------------------%n");
+        System.out.printf("TOTAL PAYMENT(USD): %-20s  |%n", bill.getTotalPayment());
+        System.out.printf("-------------------------------------------%n");
     }
 
-    public void displayBillUser(Scanner scanner, ArrayList<Cart> carts, CartManager cartManager) {
-        System.out.println(creatNew(scanner, carts, cartManager));
-        System.out.printf("-------------------------------------%n");
-        System.out.printf("          BILL INFORMATION           %n");
-        System.out.printf("-------------------------------------%n");
-        System.out.printf("| %-15s | %-12s |%-10s | %-15s |%-10s |%n", "DATE", "CUSTOMER NAME", "PRODUCT", "PRICE(USD)", "QUANTITY");
-        System.out.printf("| %-15s | %-12s |%-10s | %-15s |%-10s |%n", "DATE", "CUSTOMER NAME", "PRODUCT", "PRICE(USD)", "QUANTITY");
-        System.out.printf("-------------------------------------%n");
-        System.out.printf(" %-20s |%n","TOTAL PAYMENT(USD)");
-
-    }
-
-    public Bill creatNew(Scanner scanner, ArrayList<Cart> carts, CartManager cartManager) {
+    public Bill creatNew(Scanner scanner, CartManager cartManager, ProductManager productManager) {
         LocalDate date =java.time.LocalDate.now();
         String name = "";
         int totalPay = 0;
-        if (cartManager.toPay(scanner)) {
+        if (cartManager.toPay(scanner, productManager)) {
             System.out.println("Enter to your bill info: ");
             System.out.println("Enter your name: ");
             name = scanner.nextLine();
-            for (int i = 0; i < carts.size(); i++) {
-                totalPay += carts.get(i).getQuantity() * carts.get(i).getPrice();
+            for (int i = 0; i < cartManager.getCarts().size(); i++) {
+                totalPay += cartManager.getCarts().get(i).getQuantity() * cartManager.getCarts().get(i).getPrice();
             }
             return new Bill(date, name, cartManager, totalPay);
         }
         else {
             return null;
         }
-
-    }
-    @Override
-    public Object creatNew(Scanner scanner) {
-        return null;
-    }
-    @Override
-    public void add(Scanner scanner) {
-    }
-
-    @Override
-    public void delete(Scanner scanner) {
-    }
-
-    @Override
-    public void update(Scanner scanner) {
-
     }
 }

@@ -3,11 +3,14 @@ package controller;
 import model.Cart;
 import model.Product;
 import service.CRUD;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import service.Check;
 
-public class CartManager implements CRUD<Cart> {
+public class CartManager implements Serializable {
     private ArrayList<Cart> carts;
 
     public CartManager() {
@@ -22,16 +25,15 @@ public class CartManager implements CRUD<Cart> {
         this.carts = carts;
     }
 
-    @Override
     public void display() {
         if (!carts.isEmpty()) {
-            System.out.printf("-----------------------------%n");
-            System.out.printf("           YOUR CART         %n");
-            System.out.printf("-----------------------------%n");
-            System.out.printf("| %-10s | %-15s |%-10s |%n", "PRODUCT", "PRICE(USD", "QUANTITY");
+            System.out.printf("--------------------------------------------%n");
+            System.out.printf("                   YOUR CART                %n");
+            System.out.printf("--------------------------------------------%n");
+            System.out.printf("| %-10s | %-15s |%-10s |%n", "PRODUCT", "PRICE(USD)", "QUANTITY");
             for (int i = 0; i < carts.size(); i++) {
                 System.out.printf("| %-10s | %-15s |%-10s |%n"
-                        ,carts.get(i).getProduct(), carts.get(i).getPrice(), carts.get(i).getQuantity());
+                        , carts.get(i).getProduct(), carts.get(i).getPrice(), carts.get(i).getQuantity());
             }
         } else {
             System.out.println("Your cart is empty");
@@ -73,11 +75,11 @@ public class CartManager implements CRUD<Cart> {
             try {
                 System.out.println("Enter quantity of product to buy");
                 quantity = Integer.parseInt(scanner.nextLine());
+                flag = true;
             } catch (NumberFormatException e) {
                 System.out.println("Format wrong, re-enter");
-                flag = true;
             }
-        } while (flag);
+        } while (!flag);
         return new Cart(name, price, quantity);
     }
 
@@ -95,60 +97,40 @@ public class CartManager implements CRUD<Cart> {
                 carts.add(cart);
                 display();
                 products.get(indexBuy).setQuantity(products.get(indexBuy).getQuantity() - cart.getQuantity());
-            }
-            else {
+            } else {
                 System.out.println("This product is out of stock, please choose different product");
-                creatNew(scanner);
-                add(scanner);
+                creatNew(scanner, products);
             }
-        }
-        else {
+        } else {
             System.out.println("Not have the same product, re-enter");
         }
 
     }
 
-    public boolean toPay(Scanner scanner) {
+    public boolean toPay(Scanner scanner, ProductManager productManager) {
         int totalPay = 0;
-        ProductManager productManager = new ProductManager();
-        do {
-            System.out.println("Enter your choose: [0~2] ");
-            System.out.println("1. To pay your cart!");
-            System.out.println("2. Return to display product");
-            int choose = Integer.parseInt(scanner.nextLine());
-            switch (choose) {
-                case 1:
-                    display();
-                    for (int i = 0; i < carts.size(); i++) {
-                        totalPay += carts.get(i).getQuantity() * carts.get(i).getPrice();
-                    }
-                    System.out.println("Total Payment is: " + totalPay + " USD");
-                    return true;
-                case 2:
-                    productManager.display();
-                    return false;
-                default:
-                    System.out.println("Out of choice, re-enter");
-            }
+        boolean check = true;
+        System.out.println("Enter your choose: [0~2] ");
+        System.out.println("1. To pay your cart!");
+        System.out.println("2. Cancel");
+        int choose = Integer.parseInt(scanner.nextLine());
+        switch (choose) {
+            case 1:
+                display();
+                for (int i = 0; i < carts.size(); i++) {
+                    totalPay += carts.get(i).getQuantity() * carts.get(i).getPrice();
+                }
+                System.out.printf("--------------------------------------------%n");
+                System.out.printf("TOTAL PAYMENT(USD): %-20s %n", totalPay);
+                System.out.printf("--------------------------------------------%n");
+                break;
+            case 2:
+                productManager.display();
+                check = false;
+                break;
+            default:
+                System.out.println("Out of choice, re-enter");
         }
-        while (true);
-    }
-
-    @Override
-    public Cart creatNew(Scanner scanner) {
-        return null;
-    }
-    @Override
-    public void add(Scanner scanner) {
-    }
-
-    @Override
-    public void delete(Scanner scanner) {
-
-    }
-
-    @Override
-    public void update(Scanner scanner) {
-
+        return check;
     }
 }

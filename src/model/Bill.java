@@ -53,13 +53,4 @@ public class Bill implements Serializable {
         this.totalPayment = totalPayment;
     }
 
-    @Override
-    public String toString() {
-        return "Bill {" +
-                "date=" + date +
-                ", customerName='" + customerName + '\'' +
-                ", carts=" + carts +
-                ", totalPayment=" + totalPayment +
-                '}';
-    }
 }
