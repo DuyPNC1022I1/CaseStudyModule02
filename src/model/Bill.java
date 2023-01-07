@@ -8,7 +8,6 @@ import java.time.LocalDate;
 public class Bill implements Serializable {
     private LocalDate date;
     private String customerName;
-
     private CartManager carts;
     private int totalPayment;
 
@@ -56,7 +55,7 @@ public class Bill implements Serializable {
 
     @Override
     public String toString() {
-        return "Bill{" +
+        return "Bill {" +
                 "date=" + date +
                 ", customerName='" + customerName + '\'' +
                 ", carts=" + carts +

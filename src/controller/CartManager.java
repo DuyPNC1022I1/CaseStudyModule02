@@ -14,11 +14,24 @@ public class CartManager implements CRUD<Cart> {
         carts = new ArrayList<>();
     }
 
+    public ArrayList<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(ArrayList<Cart> carts) {
+        this.carts = carts;
+    }
+
     @Override
     public void display() {
         if (!carts.isEmpty()) {
+            System.out.printf("-----------------------------%n");
+            System.out.printf("           YOUR CART         %n");
+            System.out.printf("-----------------------------%n");
+            System.out.printf("| %-10s | %-15s |%-10s |%n", "PRODUCT", "PRICE(USD", "QUANTITY");
             for (int i = 0; i < carts.size(); i++) {
-                System.out.println(carts.get(i));
+                System.out.printf("| %-10s | %-15s |%-10s |%n"
+                        ,carts.get(i).getProduct(), carts.get(i).getPrice(), carts.get(i).getQuantity());
             }
         } else {
             System.out.println("Your cart is empty");
@@ -109,7 +122,7 @@ public class CartManager implements CRUD<Cart> {
                     for (int i = 0; i < carts.size(); i++) {
                         totalPay += carts.get(i).getQuantity() * carts.get(i).getPrice();
                     }
-                    System.out.println("Total Payment is: " + totalPay + " VND");
+                    System.out.println("Total Payment is: " + totalPay + " USD");
                     return true;
                 case 2:
                     productManager.display();

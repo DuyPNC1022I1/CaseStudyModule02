@@ -41,7 +41,7 @@ public class Cart implements Serializable {
     public String toString() {
         return "Cart {" +
                 "product='" + product + '\'' +
-                ", price=" + price + " VND" +
+                ", price=" + price + " USD" +
                 ", quantity=" + quantity +
                 '}';
     }

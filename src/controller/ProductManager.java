@@ -12,7 +12,7 @@ public class ProductManager implements CRUD<Product> {
     private ArrayList<Product> products;
     private BrandManager brandManager;
     public FileManager fileManager = new FileManager<>();
-    int idDefault = 0;
+    int idDefault = 1;
 
     public ProductManager() {
     }
@@ -213,9 +213,15 @@ public class ProductManager implements CRUD<Product> {
             System.out.println("Enter name search: ");
             String name = scanner.nextLine();
             boolean flag = true;
+            System.out.printf("-----------------------------------------------------------------%n");
+            System.out.printf("                             LIST PRODUCT                        %n");
+            System.out.printf("-----------------------------------------------------------------%n");
+            System.out.printf("| %-3s | %-10s | %-15s | %-10s | %-11s |%n", "ID", "NAME", "PRICE (USD)", "QUANTITY", "BRAND");
             for (int i = 0; i < products.size(); i++) {
                 if (products.get(i).getName().toLowerCase().contains(name.toLowerCase())) {
-                    System.out.println(products.get(i));
+                    System.out.printf("| %-3s | %-10s | %-15s | %-10s | %-11s |%n",
+                            products.get(i).getId(), products.get(i).getName(), products.get(i).getPrice()
+                            , products.get(i).getQuantity(), products.get(i).getBrand().getName());
                     flag = false;
                 }
             }
@@ -246,10 +252,16 @@ public class ProductManager implements CRUD<Product> {
                 }
             }
             while (check);
-            System.out.println("model.Product you need to find is: ");
+            System.out.println("Product you find is: ");
+            System.out.printf("-----------------------------------------------------------------%n");
+            System.out.printf("                             LIST PRODUCT                        %n");
+            System.out.printf("-----------------------------------------------------------------%n");
+            System.out.printf("| %-3s | %-10s | %-15s | %-10s | %-11s |%n", "ID", "NAME", "PRICE (USD)", "QUANTITY", "BRAND");
             for (int i = 0; i < products.size(); i++) {
                 if ((products.get(i).getPrice() >= priceLower) && (products.get(i).getPrice() <= priceUpper)) {
-                    System.out.println(products.get(i));
+                    System.out.printf("| %-3s | %-10s | %-15s | %-10s | %-11s |%n",
+                            products.get(i).getId(), products.get(i).getName(), products.get(i).getPrice()
+                            , products.get(i).getQuantity(), products.get(i).getBrand().getName());
                     flag = false;
                 }
             }
@@ -276,9 +288,16 @@ public class ProductManager implements CRUD<Product> {
         System.out.println("List product by brand: ");
         brandManager.display();
         Brand brand = choiceBrand(scanner);
+        System.out.printf("-----------------------------------------------------------------%n");
+        System.out.printf("                             LIST PRODUCT                        %n");
+        System.out.printf("-----------------------------------------------------------------%n");
+        System.out.printf("| %-3s | %-10s | %-15s | %-10s | %-11s |%n", "ID", "NAME", "PRICE (USD)", "QUANTITY", "BRAND");
         for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getId() == brand.getId()) {
-                System.out.println(products.get(i));
+            boolean a = products.get(i).getBrand().getId() == brand.getId();
+            if (a) {
+                System.out.printf("| %-3s | %-10s | %-15s | %-10s | %-11s |%n",
+                        products.get(i).getId(), products.get(i).getName(), products.get(i).getPrice()
+                        , products.get(i).getQuantity(), products.get(i).getBrand().getName());
             }
         }
     }
