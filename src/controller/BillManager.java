@@ -3,11 +3,8 @@ package controller;
 import model.Bill;
 import model.Cart;
 import service.CRUD;
-import sun.util.resources.LocaleData;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class BillManager implements CRUD {
@@ -50,12 +47,10 @@ public class BillManager implements CRUD {
     }
     @Override
     public void add(Scanner scanner) {
-
     }
 
     @Override
     public void delete(Scanner scanner) {
-
     }
 
     @Override

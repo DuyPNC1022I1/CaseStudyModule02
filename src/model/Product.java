@@ -62,7 +62,7 @@ public class Product implements Serializable {
         return "Product {" +
                 "id=" + id +
                 ", name='" + "MassageChair " + name + '\'' +
-                ", price=" + price + "VND"+
+                ", price=" + price + "USD" +
                 ", quantity=" + quantity +
                 ", brand=" + brand +
                 '}';

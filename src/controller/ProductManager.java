@@ -32,8 +32,14 @@ public class ProductManager implements CRUD<Product> {
         if (products.isEmpty()) {
             System.out.println("Not exist Product in this list");
         } else {
+            System.out.printf("-----------------------------------------------------------------%n");
+            System.out.printf("                             LIST PRODUCT                        %n");
+            System.out.printf("-----------------------------------------------------------------%n");
+            System.out.printf("| %-3s | %-10s | %-15s | %-10s | %-11s |%n", "ID", "NAME", "PRICE (USD)", "QUANTITY", "BRAND");
             for (int i = 0; i < products.size(); i++) {
-                System.out.println(products.get(i));
+                System.out.printf("| %-3s | %-10s | %-15s | %-10s | %-11s |%n",
+                        products.get(i).getId(), products.get(i).getName(), products.get(i).getPrice()
+                        , products.get(i).getQuantity(), products.get(i).getBrand().getName());
             }
         }
     }
@@ -74,7 +80,7 @@ public class ProductManager implements CRUD<Product> {
         }
         while (!check);
         System.out.println("Choose brand of product: ");
-        brandManager.displayBrandManager();
+        brandManager.display();
         Brand brand = choiceBrand(scanner);
         fileManager.writeToFile(fileManager.getFileProduct(), products);
         return new Product(id, name, price, quantity, brand);
@@ -101,51 +107,51 @@ public class ProductManager implements CRUD<Product> {
 
     @Override
     public void update(Scanner scanner) {
-            int indexUpdate = searchId(scanner);
-            if (indexUpdate != -1) {
-                boolean check = true;
-                String name = "";
-                for (int i = 0; i < products.size(); i++) {
-                    if (products.get(i).getId() == indexUpdate) {
-                        indexUpdate = i;
-                        break;
-                    }
+        int indexUpdate = searchId(scanner);
+        if (indexUpdate != -1) {
+            boolean check = true;
+            String name = "";
+            for (int i = 0; i < products.size(); i++) {
+                if (products.get(i).getId() == indexUpdate) {
+                    indexUpdate = i;
+                    break;
                 }
-                do {
-                    try {
-                        do {
-                            System.out.println("Enter name to update: ");
-                            name = scanner.nextLine();
-                            if (!name.equals("")) {
-                                check = false;
-                            } else {
-                                System.out.println("Re-enter: name of product > 0 character");
-                            }
-                        }
-                        while (check);
-                        products.get(indexUpdate).setName(name);
-                        System.out.println("Enter price to update: ");
-                        int price = Integer.parseInt(scanner.nextLine());
-                        products.get(indexUpdate).setPrice(price);
-                        System.out.println("Enter quantity to update: ");
-                        int quantity = Integer.parseInt(scanner.nextLine());
-                        products.get(indexUpdate).setQuantity(quantity);
-                        System.out.println("Enter idBrand to update: ");
-                        brandManager.displayBrandManager();
-                        Brand brand = choiceBrand(scanner);
-                        products.get(indexUpdate).setBrand(brand);
-                        fileManager.writeToFile(fileManager.getFileProduct(), products);
-                        display();
-                        check = true;
-                    } catch (NumberFormatException e) {
-                        System.out.println("Wrong format, re-enter!!!");
-                    }
-                }
-                while (!check);
-            } else {
-                System.out.println("Update fail because 'Not exist Product in list'");
             }
+            do {
+                try {
+                    do {
+                        System.out.println("Enter name to update: ");
+                        name = scanner.nextLine();
+                        if (!name.equals("")) {
+                            check = false;
+                        } else {
+                            System.out.println("Re-enter: name of product > 0 character");
+                        }
+                    }
+                    while (check);
+                    products.get(indexUpdate).setName(name);
+                    System.out.println("Enter price to update: ");
+                    int price = Integer.parseInt(scanner.nextLine());
+                    products.get(indexUpdate).setPrice(price);
+                    System.out.println("Enter quantity to update: ");
+                    int quantity = Integer.parseInt(scanner.nextLine());
+                    products.get(indexUpdate).setQuantity(quantity);
+                    System.out.println("Enter idBrand to update: ");
+                    brandManager.display();
+                    Brand brand = choiceBrand(scanner);
+                    products.get(indexUpdate).setBrand(brand);
+                    fileManager.writeToFile(fileManager.getFileProduct(), products);
+                    display();
+                    check = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Wrong format, re-enter!!!");
+                }
+            }
+            while (!check);
+        } else {
+            System.out.println("Update fail because 'Not exist Product in list'");
         }
+    }
 
     public Brand choiceBrand(Scanner scanner) {
         Brand brand = null;
@@ -268,7 +274,7 @@ public class ProductManager implements CRUD<Product> {
 
     public void displayByBrand(Scanner scanner) {
         System.out.println("List product by brand: ");
-        brandManager.displayBrandManager();
+        brandManager.display();
         Brand brand = choiceBrand(scanner);
         for (int i = 0; i < products.size(); i++) {
             if (products.get(i).getId() == brand.getId()) {
@@ -276,5 +282,4 @@ public class ProductManager implements CRUD<Product> {
             }
         }
     }
-
 }

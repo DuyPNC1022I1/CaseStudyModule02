@@ -25,11 +25,11 @@ public class Menu {
 
     public void runMenuAll() {
         do {
-            System.out.println("~~~~~~~~~~~~~~~~~~MENU~~~~~~~~~~~~~~~~~~");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~MENU~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("1. Login");
             System.out.println("2. Creat new Account");
             System.out.println("0. Exit");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             switch (choice(scanner)) {
                 case 1:
                     accountManager.loginAccount(scanner);
@@ -48,7 +48,7 @@ public class Menu {
 
     public void runMenuUser() {
         do {
-            System.out.println("~~~~~~~~~~~~~~~MENU_USER~~~~~~~~~~~~~~~~");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~MENU_USER~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("1. Display list of product");
             System.out.println("2. Display product by up price");
             System.out.println("3. Display product by brand");
@@ -59,7 +59,7 @@ public class Menu {
             System.out.println("8. Display bill");
             System.out.println("9. Logout");
             System.out.println("0. Exit");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             switch (choice(scanner)) {
                 case 1:
                     productManager.display();
@@ -81,7 +81,7 @@ public class Menu {
                     break;
                 case 7:
                     cartManager.toPay(scanner);
-                    //Thêm tạo bil
+                    //Thêm tạo bill
                     break;
                 case 8:
 
@@ -100,7 +100,7 @@ public class Menu {
 
     public void runMenuAdmin() {
         do {
-            System.out.println("~~~~~~~~~~~~~~~MENU_ADMIN~~~~~~~~~~~~~~~~");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~MENU_ADMIN~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("1. Display account");
             System.out.println("2. Delete account");
             System.out.println("3. Display list of brand");
@@ -112,7 +112,7 @@ public class Menu {
             System.out.println("9. Update information of product");
             System.out.println("10. Logout");
             System.out.println("0. Exit");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             switch (choice(scanner)) {
                 case 1:
                     accountManager.display();
@@ -121,13 +121,14 @@ public class Menu {
                     accountManager.delete(scanner);
                     break;
                 case 3:
-                    brandManager.displayBrandManager();
+                    brandManager.display();
                     break;
                 case 4:
-                    brandManager.addBrand(scanner);
+                    brandManager.add(scanner);
                     break;
                 case 5:
-                    brandManager.deleteBrandById(scanner);
+                    brandManager.display();
+                    brandManager.delete(scanner, productManager.getProducts());
                     break;
                 case 6:
                     productManager.display();

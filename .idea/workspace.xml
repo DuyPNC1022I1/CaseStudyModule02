@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9cb4fa-1f70-498b-b027-47138205dc56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/BillManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Bill.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/CartManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CartManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/BillManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/BillManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/BrandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/BrandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ProductManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/FileBrand" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/FileBrand" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/FileProduct" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/FileProduct" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Bill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,21 +41,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Module 02/Baitapmodule02&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Module 02/Baitapmodule02",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -102,10 +106,37 @@
       <workItem from="1672986678367" duration="5010000" />
       <workItem from="1672991746985" duration="2950000" />
       <workItem from="1672994745461" duration="6049000" />
+      <workItem from="1673019085262" duration="14554000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/controller/BrandManager.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/controller/BrandManager.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/controller/BrandManager.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/controller/BrandManager.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

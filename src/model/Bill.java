@@ -2,9 +2,10 @@ package model;
 
 import controller.CartManager;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Bill {
+public class Bill implements Serializable {
     private LocalDate date;
     private String customerName;
 
