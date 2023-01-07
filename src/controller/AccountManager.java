@@ -39,7 +39,7 @@ public class AccountManager implements CRUD<Account> {
         String pass = null;
         String email = null;
         String phoneNumber = null;
-        boolean flag = false;
+        boolean flag = true;
         System.out.println("Creat new account: ");
         System.out.println("Enter full name: ");
         String fullName = scanner.nextLine();
@@ -49,17 +49,17 @@ public class AccountManager implements CRUD<Account> {
             if (check.checkUsername(username)) {
                 for (int i = 0; i < accounts.size(); i++) {
                     if (accounts.get(i).getUserName().equals(username)) {
-                        flag = true;
+                        flag = false;
                         break;
                     }
                 }
-                if (flag) {
+                if (!flag) {
                     System.out.println("Username already exist, re-enter");
                 }
             } else {
                 System.out.println("Format wrong username, re-enter");
             }
-        } while (!check.checkUsername(username) || flag);
+        } while (!check.checkUsername(username) || !flag);
         do {
             System.out.println("Enter password [0 -> 15 character]: ");
             pass = scanner.nextLine();
@@ -76,14 +76,14 @@ public class AccountManager implements CRUD<Account> {
             else {
                 for (int i = 0; i < accounts.size(); i++) {
                     if(accounts.get(i).getEmail().equals(email)) {
-                        flag = true;
+                        flag = false;
                     }
                 }
-                if (flag) {
+                if (!flag) {
                     System.out.println("Email already exist, re-enter");
                 }
             }
-        } while (!check.checkEmail(email) || flag);
+        } while (!check.checkEmail(email) || !flag);
         do {
             System.out.println("Enter phone number [Example: 0*********]: ");
             phoneNumber = scanner.nextLine();

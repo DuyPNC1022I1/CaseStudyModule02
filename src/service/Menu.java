@@ -80,7 +80,6 @@ public class Menu {
                     cartManager.add(scanner, productManager.getProducts());
                     break;
                 case 7:
-                    cartManager.toPay(scanner, productManager);
                     billManager.displayBillUser(scanner, cartManager, productManager);
                     break;
                 case 8:

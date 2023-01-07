@@ -111,12 +111,6 @@ public class ProductManager implements CRUD<Product> {
         if (indexUpdate != -1) {
             boolean check = true;
             String name = "";
-            for (int i = 0; i < products.size(); i++) {
-                if (products.get(i).getId() == indexUpdate) {
-                    indexUpdate = i;
-                    break;
-                }
-            }
             do {
                 try {
                     do {

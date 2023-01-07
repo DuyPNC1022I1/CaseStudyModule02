@@ -97,6 +97,9 @@ public class BrandManager implements CRUD<Brand> {
                             fileManager.writeToFile(fileManager.getFileProduct(), products);
                             check = true;
                         }
+                        else {
+                            check = false;
+                        }
                     }
                 } while (check);
             }

@@ -110,11 +110,20 @@ public class CartManager implements Serializable {
     public boolean toPay(Scanner scanner, ProductManager productManager) {
         int totalPay = 0;
         boolean check = true;
-        System.out.println("Enter your choose: [0~2] ");
+        int choice = 0;
         System.out.println("1. To pay your cart!");
-        System.out.println("2. Cancel");
-        int choose = Integer.parseInt(scanner.nextLine());
-        switch (choose) {
+        System.out.println("2. Cancel. Return to check product");
+        System.out.println("Enter your choose: [0~2] ");
+        do {
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+                check = false;
+            } catch (NumberFormatException e) {
+                System.out.println("Format wrong, re-enter");
+            }
+        }
+        while (check);
+        switch (choice) {
             case 1:
                 display();
                 for (int i = 0; i < carts.size(); i++) {
@@ -126,7 +135,7 @@ public class CartManager implements Serializable {
                 break;
             case 2:
                 productManager.display();
-                check = false;
+                check = true;
                 break;
             default:
                 System.out.println("Out of choice, re-enter");
