@@ -57,9 +57,6 @@ public class AccountManager implements CRUD<Account> {
                         flag = true;
                     }
                 }
-//                if (!flag) {
-//                    System.out.println("Username already exist, re-enter");
-//                }
             } else {
                 System.out.println("Format wrong username, re-enter");
             }
@@ -81,13 +78,12 @@ public class AccountManager implements CRUD<Account> {
                 for (int i = 0; i < accounts.size(); i++) {
                     if(accounts.get(i).getEmail().equals(email)) {
                         flag = false;
+                        System.out.println("Email already exist, re-enter");
+                        break;
                     }
                     else {
                         flag = true;
                     }
-                }
-                if (!flag) {
-                    System.out.println("Email already exist, re-enter");
                 }
             }
         } while (!check.checkEmail(email) || !flag);

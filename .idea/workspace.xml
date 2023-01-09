@@ -7,8 +7,6 @@
     <list default="true" id="aa9cb4fa-1f70-498b-b027-47138205dc56" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/AccountManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AccountManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/FileAccount" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/FileAccount" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +109,7 @@
       <workItem from="1673194065513" duration="15000" />
       <workItem from="1673226319709" duration="391000" />
       <workItem from="1673226799381" duration="6707000" />
-      <workItem from="1673237830025" duration="814000" />
+      <workItem from="1673237830025" duration="1995000" />
     </task>
     <servers />
   </component>
