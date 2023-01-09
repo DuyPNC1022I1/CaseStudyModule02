@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="aa9cb4fa-1f70-498b-b027-47138205dc56" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/AccountManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AccountManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/BrandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/BrandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ProductManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/FileAccount" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/FileAccount" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/FileProduct" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/FileProduct" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,21 +36,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Module 02/CaseStudyMD2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Module 02/Duc Anh/casestudyModule2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -109,7 +112,11 @@
       <workItem from="1673194065513" duration="15000" />
       <workItem from="1673226319709" duration="391000" />
       <workItem from="1673226799381" duration="6707000" />
-      <workItem from="1673237830025" duration="1995000" />
+      <workItem from="1673237830025" duration="2150000" />
+      <workItem from="1673240422141" duration="2000" />
+      <workItem from="1673246368490" duration="1139000" />
+      <workItem from="1673248610286" duration="36000" />
+      <workItem from="1673249984583" duration="5439000" />
     </task>
     <servers />
   </component>

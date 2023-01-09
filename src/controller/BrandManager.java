@@ -92,10 +92,11 @@ public class BrandManager implements CRUD<Brand> {
                 //Xóa product theo brand
                 do {
                     for (int i = 0; i < products.size(); i++) {
-                        if ( products.get(i).getBrand().getId() == id) {
+                        if (products.get(i).getBrand().getId() == id) {
                             products.remove(products.get(i));
                             fileManager.writeToFile(fileManager.getFileProduct(), products);
                             check = true;
+                            break;
                         }
                         else {
                             check = false;

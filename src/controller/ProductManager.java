@@ -4,7 +4,6 @@ import service.CRUD;
 import model.Product;
 import model.Brand;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
@@ -14,8 +13,6 @@ public class ProductManager implements CRUD<Product> {
     public FileManager fileManager = new FileManager<>();
     int idDefault = 1;
 
-    public ProductManager() {
-    }
 
     public ProductManager(BrandManager brandManager) {
         products = new ArrayList<>();
@@ -269,7 +266,7 @@ public class ProductManager implements CRUD<Product> {
 
     public void displayByPriceUp() {
         System.out.println("List product by up price: ");
-        Collections.sort(products, new Comparator<Product>() {
+        products.sort(new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {
                 return o1.getPrice() > o2.getPrice() ? 1 : -1;
