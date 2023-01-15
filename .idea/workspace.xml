@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="aa9cb4fa-1f70-498b-b027-47138205dc56" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/BrandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/BrandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ProductManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/FileAccount" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/FileAccount" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/FileBrand" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/FileBrand" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/FileProduct" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/FileProduct" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Module 02/Duc Anh/casestudyModule2",
+    "last_opened_file_path": "D:/Module 02/CaseStudyMD2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,7 +114,9 @@
       <workItem from="1673240422141" duration="2000" />
       <workItem from="1673246368490" duration="1139000" />
       <workItem from="1673248610286" duration="36000" />
-      <workItem from="1673249984583" duration="5439000" />
+      <workItem from="1673249984583" duration="5854000" />
+      <workItem from="1673313944922" duration="1165000" />
+      <workItem from="1673316610490" duration="5466000" />
     </task>
     <servers />
   </component>
